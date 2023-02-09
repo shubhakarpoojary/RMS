@@ -31,7 +31,7 @@ export class AuthGaurd implements CanActivate {
       const currentUser = JSON.parse(localStorage.getItem('currentUser'));
       if (new Date(currentUser.expireDate) < new Date()) {
         // token expire so redirect to login page with the return url
-        this.router.navigate(['/session/signin']);
+        this.router.navigate(['/sessions/signin']);
         return false;
       }
       else {
@@ -39,7 +39,7 @@ export class AuthGaurd implements CanActivate {
       }
     }
 
-    this.router.navigate(['/authentication/signin']);
+    this.router.navigate(['/sessions/signin']);
     return false;
   }
 }

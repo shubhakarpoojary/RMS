@@ -9,7 +9,7 @@ import { delay } from "rxjs/operators";
 })
 export class AuthService {
   //Only for demo purpose
-  authenticated = true;
+  authenticated = false;
 
   constructor(private store: LocalStoreService, private router: Router) {
     this.checkAuth();
@@ -17,6 +17,13 @@ export class AuthService {
 
   checkAuth() {
     // this.authenticated = this.store.getItem("rms_login_status");
+    if(this.store.getItem("rms_login_status")==true)
+    {
+      this.authenticated = true;
+    }
+    else{
+      this.authenticated = false;
+    }
   }
 
   getuser() {

@@ -9,6 +9,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './shared/inmemory-db/inmemory-db.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RMSInterceptor } from './rms-interceptor';
+import { RmsServiceService } from './views/rms-service.service';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { RMSInterceptor } from './rms-interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: RMSInterceptor, multi: true },
+    RmsServiceService
   ],
   bootstrap: [AppComponent]
 })

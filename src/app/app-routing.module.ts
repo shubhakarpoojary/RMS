@@ -50,7 +50,16 @@ const adminRoutes: Routes = [
     {
         path: 'icons',
         loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
-    }
+    },
+
+
+
+    //RMS
+    {
+      path: 'search',
+      loadChildren: () => import('./views/rms/search/search.module').then(m => m.SearchModule)
+  },
+
   ];
 
 const routes: Routes = [

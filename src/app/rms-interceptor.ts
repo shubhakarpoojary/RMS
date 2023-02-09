@@ -10,7 +10,6 @@ export class RMSInterceptor implements HttpInterceptor {
     constructor( private spinner: NgxSpinnerService,  public _router: Router,) {}
   
     intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
         this.spinner.show();
 
         if(JSON.parse(localStorage.getItem('currentUser'))!=null)
