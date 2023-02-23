@@ -57,16 +57,25 @@ export class NavigationService {
             type: 'link',
             state: '/dashboard/v1'
         },
-
         {
-            name: 'Serach',
-            description: 'Serach',
+            name: 'Master',
+            description: 'Master',
+            type: 'dropDown',
+            icon: 'i-File-Clipboard-File--Text',
+            sub: [
+                { icon: 'i-Add-User', name: 'Employee Info', state: '/master/employee-info', type: 'link' },
+            ]
+        },
+        {
+            name: 'Search',
+            description: 'Search',
             type: 'dropDown',
             icon: 'i-Computer-Secure',
             sub: [
                 { icon: 'i-Add-File', name: 'Job', state: '/search/job', type: 'link' },
             ]
         },
+ 
 
         // {
         //     name: 'UI kits',

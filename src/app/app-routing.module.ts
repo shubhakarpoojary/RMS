@@ -56,6 +56,10 @@ const adminRoutes: Routes = [
 
     //RMS
     {
+      path: 'master',
+      loadChildren: () => import('./views/rms/master/master.module').then(m => m.MasterModule)
+  },
+    {
       path: 'search',
       loadChildren: () => import('./views/rms/search/search.module').then(m => m.SearchModule)
   },

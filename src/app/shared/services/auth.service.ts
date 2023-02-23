@@ -36,6 +36,7 @@ export class AuthService {
     return of({}).pipe(delay(1500));
   }
   signout() {
+    localStorage.clear()
     this.authenticated = false;
     this.store.setItem("rms_login_status", false);
     this.router.navigateByUrl("/sessions/signin");

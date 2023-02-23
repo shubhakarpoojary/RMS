@@ -6,7 +6,7 @@
     min-height: 100vh;
     background-size: cover;
     .auth-content {
-        max-width: 660px;
+        max-width: 500px;
         margin: auto;
     }
 }
@@ -29,7 +29,7 @@
 @media (min-width: 1024px) {
     .auth-layout-wrap {
         .auth-content {
-            min-width: 660px;
+            min-width: 500px;
         }
     }
 }

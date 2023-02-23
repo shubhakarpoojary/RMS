@@ -11,12 +11,11 @@ export class RMSInterceptor implements HttpInterceptor {
   
     intercept (req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.spinner.show();
-
         if(JSON.parse(localStorage.getItem('currentUser'))!=null)
         {
             req = req.clone({
                 setHeaders: {
-                    Authorization: 'Bearer '+JSON.parse(localStorage.getItem('currentUser')).access_token,
+                    Authorization: 'Bearer '+JSON.parse(localStorage.getItem('currentUser')).accessToken,
                 }
             });
         }       

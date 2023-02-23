@@ -1,0 +1,56 @@
+<div class="">
+    <div class="breadcrumb">
+      <h1>Employee Info</h1>
+      <ul>
+        <li><a href="#">Master</a></li>
+        <li>Employee Info</li>
+      </ul>
+    </div>
+  
+    <div class="separator-breadcrumb border-top"></div>
+
+    <div class="col-md-12" style="text-align:right">
+        <button type="button" class="btn btn-primary btn-rounded m-1" (click)="createEmployee()">Create Employee</button>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <div class="card  o-hidden">
+              <ngx-datatable
+              style="height: calc(100vh - 270px); box-shadow: none"
+              class="material fullscreen"
+              [columnMode]="'force'"
+              [headerHeight]="50"
+              [footerHeight]="0"
+              [rowHeight]="60"
+              [scrollbarV]="true"
+              [scrollbarH]="true"
+              [rows]="products$ | async">
+              <ngx-datatable-column name="photo" [maxWidth]="100">
+                  <ng-template ngx-datatable-header-template>
+                    Profile Pic
+                  </ng-template>
+                    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+                        <img height="32px" width="32px" style="border-radius: 4px" [src]="value" alt="">
+                    </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="name" [width]="300">
+                  <ng-template ngx-datatable-header-template>
+                    Name
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="category">
+                  <ng-template ngx-datatable-header-template>
+                    Role
+                  </ng-template>
+                </ngx-datatable-column>
+                <ngx-datatable-column name="subtitle">
+                  <ng-template ngx-datatable-header-template>
+                    Address
+                  </ng-template>
+                </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+      </div>
+    </div>
+</div>  

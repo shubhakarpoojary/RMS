@@ -54,35 +54,38 @@ export class SigninComponent implements OnInit {
 
             const val = this.signinForm.getRawValue();
 
-            if (val.userName == "vipindas@radiants.com" && val.password == "test@123") {
-                this.rmsService.commonAlert('', 'success', 'Confirmation', "Logged In Successfully!");
-                this.auth.signin(this.signinForm.value)
-                .subscribe(res => {
-                    console.log("result", res)
-                    localStorage.setItem('currentUser', JSON.stringify("[{'userId': 1,'userType': 'Login', 'userName': 'vipindas@radiants.comss','password': 'test@123','companyName': 'RAD','token':'123'}]"));
-                    this.router.navigateByUrl('/dashboard/v1');
-                    this.loading = false;
-                });
-            }
-            else {
+            // if (val.userName == "vipindas@radiants.com" && val.password == "test@123") {
+            //     this.rmsService.commonAlert('', 'success', 'Confirmation', "Logged In Successfully!");
+            //     this.auth.signin(this.signinForm.value)
+            //     .subscribe(res => {
+            //         console.log("result", res)
+            //         localStorage.setItem('currentUser', JSON.stringify("[{'userId': 1,'userType': 'Login', 'userName': 'vipindas@radiants.comss','password': 'test@123','companyName': 'RAD','token':'123'}]"));
+            //         this.router.navigateByUrl('/dashboard/v1');
+            //         this.loading = false;
+            //     });
+            // }
+            // else {
 
-                this.rmsService.commonAlert('', 'error', 'Error', "Wrong Credentails!");
-            }
+            //     this.rmsService.commonAlert('', 'error', 'Error', "Wrong Credentails!");
+            // }
 
 
             let url = environment.endpoint + 'api/Token';
-            this.http.post(url, val).toPromise().then(data => {
-                this.auth.signin(this.signinForm.value)
-                    .subscribe(res => {
-                        console.log("result", res)
-                        localStorage.setItem('currentUser', JSON.stringify(res));
-                        this.router.navigateByUrl('/dashboard/v1');
-                        this.loading = false;
-                    })
+            this.http.post(url, val).toPromise().then((data: any) => {
+                if (data) {
+                    console.log("result", data)
+                    localStorage.setItem('currentUser', JSON.stringify(data));
+                    this.auth.signin(this.signinForm.value)
+                        .subscribe((res: any) => {
+                            this.router.navigateByUrl('/dashboard/v1');
+                            this.loading = false;
+                        })
+                }
             }, error => {
                 console.log("Error", error);
                 this.loading = false;
                 this.loadingText = "";
+                this.rmsService.commonAlert('', 'error', 'Error', "Wrong Credentails!");
             });
         }
     }
