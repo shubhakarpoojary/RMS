@@ -50,12 +50,17 @@ export class NavigationService {
     }
 
     defaultMenu: IMenuItem[] = [
-        {
+        {   
             name: 'Dashboard',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+            description: 'Dashboard',
+            type: 'dropDown',
             icon: 'i-Bar-Chart',
-            type: 'link',
-            state: '/dashboard/v1'
+            sub: [
+                { icon: 'i-Clock-3', name: 'Dashboard', state: '/dashboard/v1', type: 'link' },
+                { icon: 'i-Clock-4', name: 'Search Job', state: '/dashboard/v2', type: 'link' },
+                { icon: 'i-Over-Time', name: 'Add Job', state: '/dashboard/v3', type: 'link' },
+                { icon: 'i-Clock', name: 'Recruiter list', state: '/dashboard/v4', type: 'link' },
+            ]
         },
         {
             name: 'Master',
